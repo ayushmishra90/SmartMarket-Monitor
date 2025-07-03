@@ -1,102 +1,46 @@
-📈 SmartMarket Monitor
-SmartMarket Monitor is an AI-enhanced stock market news analyzer that scrapes, filters, and interprets financial news from top Indian sources. It offers personalized insights based on user portfolios or general market sentiment using a local LLM like Ollama.
+# 📊 SmartMarket Monitor
 
-🚀 Features
-📰 News Scraping Module
-Automatically scrapes the latest stock market news from Indian sources like Moneycontrol, Economic Times Markets, etc.
+**SmartMarket Monitor** is an AI-powered platform that scrapes, filters, and analyzes Indian stock market news. It personalizes news feeds based on the user's portfolio and offers sentiment insights using a local language model (LLM) via **Ollama**.
 
-Displays a continuous feed in the General News section.
+---
 
-📊 Portfolio Linking Module
-Allows users to link their stock portfolios using broker APIs (Zerodha Kite Connect sandbox, Groww sandbox)
+## 🚀 Features
 
-If APIs aren't available, supports manual mock input (user can input stock symbols like INFY, TCS, etc.)
+### 📰 1. News Scraping Module
+- Scrapes real-time stock market news from Indian sources like **Moneycontrol** and **Economic Times**.
+- Displays the latest headlines in a **General News** section.
 
-🧠 AI Analysis Module
-Uses Ollama (local LLM) to analyze filtered news
+### 📂 2. Portfolio Linking Module
+- Users can link their portfolios via broker APIs (e.g., **Zerodha Kite Connect sandbox**, **Groww sandbox**).
+- Supports **manual stock symbol input** as a fallback (mock portfolio).
 
-Classifies sentiment as:
+### 🧠 3. AI Analysis Module
+- Integrates **Ollama** (local LLM) to analyze headlines.
+- Classifies sentiment as:
+  - ✅ Positive Impact
+  - ⚠️ Neutral
+  - ❌ Negative Impact
+- If no portfolio is linked, generates a **general market sentiment** summary.
+- Optionally includes **confidence scores** and **short reasoning**.
 
-✅ Positive Impact
+### 🔍 4. Filtered News Section
+- Filters and displays only the news relevant to the user's portfolio.
+- Helps users focus on impactful updates.
 
-⚠️ Neutral
+### 🔔 5. Notifications (Optional)
+- Sends **push notifications** or **email alerts** for important news events or sentiment changes.
 
-❌ Negative Impact
+---
 
-If no portfolio is linked, provides a general market sentiment summary
+## 🛠️ Tech Stack
 
-🗂️ Filtered News Section
-Filters and displays news relevant only to user-linked or input stocks
+| Layer            | Technology                      |
+|------------------|----------------------------------|
+| Frontend         | React.js / Next.js              |
+| Backend          | FastAPI (Python)                |
+| Web Scraping     | BeautifulSoup, Requests         |
+| AI Integration   | Ollama (on-device LLM)          |
+| Notifications    | Push.js / SMTP (optional)       |
+| Portfolio Input  | Manual or Broker APIs (mocked)  |
 
-Continuously updates with the latest relevant articles
-
-✉️ Bonus Features (Optional)
-Adds confidence scores and short explanations for each AI-generated sentiment
-
-Push notifications or email alerts for significant updates (via FastAPI background tasks or SMTP)
-
-🛠️ Tech Stack
-Layer	Technology
-Frontend	React.js / Next.js
-Backend	FastAPI (Python)
-Web Scraping	BeautifulSoup, Requests
-AI Analysis	Ollama (LLM)
-Notifications	SMTP or Push.js
-Optional DB	MongoDB / Firebase
-
-🧪 How It Works
-Scraper gathers news headlines and links from predefined financial websites.
-
-Portfolio Manager links the user’s stock list (either via API or manual input).
-
-News Filter selects only the headlines that match the user's stocks.
-
-Sentiment Analyzer (Ollama) processes these headlines and returns:
-
-Label (Positive / Neutral / Negative)
-
-Confidence score (optional)
-
-Brief reasoning
-
-Display UI shows general and filtered news along with AI insights.
-
-💻 Setup Instructions
-bash
-Copy
-Edit
-# 1. Clone the repository
-git clone https://github.com/ayushmishra90/SmartMarket-Monitor.git
-
-# 2. Navigate to project folder
-cd SmartMarket-Monitor
-
-# 3. Start backend (FastAPI)
-cd backend
-pip install -r requirements.txt
-uvicorn main:app --reload
-
-# 4. Start frontend
-cd ../frontend
-npm install
-npm start
-📦 Folder Structure (Example)
-css
-Copy
-Edit
-SmartMarket-Monitor/
-├── backend/
-│   ├── main.py
-│   ├── scraper.py
-│   └── ai_analysis.py
-├── frontend/
-│   ├── src/
-│   │   ├── components/
-│   │   └── pages/
-├── README.md
-📌 Future Enhancements
-Real-time broker API integration (Groww, Zerodha)
-
-Multilingual sentiment analysis
-
-Deployable version on Vercel / Render / Hugging Face Spaces
+---
